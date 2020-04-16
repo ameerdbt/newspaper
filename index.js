@@ -23,12 +23,19 @@ app.get("/", (req,res)=>{
 })
 
 mongoose.connect(
-    "mongodb://127.0.0.1:27017",
+    process.env.DB_CONNECTION,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
         console.log("connected to db");
     }
     );
+// mongoose.connect(
+//     "mongodb://127.0.0.1:27017",
+//     { useNewUrlParser: true, useUnifiedTopology: true },
+//     () => {
+//         console.log("connected to db");
+//     }
+//     );
   
 app.listen(3000, ()=>{
     console.log("Server connect at 3000")
